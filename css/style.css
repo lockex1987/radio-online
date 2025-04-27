@@ -1,0 +1,48 @@
+:root{
+	--accent: #000;
+}
+
+#visualizer{
+	height: 130px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+}
+
+.track {
+	width: 3%;
+	height: 25%;
+	background: var(--accent);
+	/* transition: .01s; */
+}
+
+.track:nth-child(2n){
+	height: 15%;
+}
+
+.track:nth-child(3n){
+	height: 20%;
+}
+
+.track:nth-child(7n){
+	height: 35%;
+}
+
+#toggle-play {
+	background-color: transparent;
+	fill: var(--accent);
+	min-height: 25px;
+	min-width: 25px;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 5vh;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 2px solid var(--accent);
+	padding: 14px;
+	border-radius: 5px;
+    cursor: pointer;
+}

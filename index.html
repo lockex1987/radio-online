@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Online</title>
+    <link href="https://lockex1987.com/images/logo.svg" rel="icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="app" class="p-5 mx-auto" style="max-width: 1023px;"> <!-- v-cloak -->
+    <div class="text-center">
+        <h3>{{ currentStation.name }}</h3>
+
+        <div class="mb-3">
+            <img :src="currentStation.logo" style="height: 66px"/>
+        </div>
+
+        <div class="mb-3">
+            <audio id="player" controls controlslist="nofullscreen nodownload noremoteplayback noplaybackrate foobar"></audio>
+            <!--audio id="player" controls src="https://stream.vovmedia.vn/vov-2" type="audio/aac"></audio-->
+            <!--audio src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_74accea696.mp3?filename=trap-beat-dark-autumn-night-141114.mp3"
+                crossorigin="anonymous"
+                type="audio/mp3"
+                id="player"
+            ></audio-->
+        </div>
+    </div>
+
+    <button id="toggle-play" class="d-none">
+        <svg viewBox="0 0 448 512" title="play">
+            <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+        </svg>
+    </button>
+
+    <div id="visualizer">
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+        <div class="track"></div>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-around">
+        <!-- Tại sao station == currentStation không được? -->
+        <div
+            v-for="(station, index) in stationList"
+            class="border rounded m-3 p-3 text-center"
+            :class="station.link == currentStation.link ? 'border-primary' : ''"
+            style="width: 235px; cursor: pointer;"
+            @click="changeStation(station, index, true)"
+        >
+            <div>{{ station.name }}</div>
+            <div><img :src="station.logo" style="height: 66px"/></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<!--script src="https://unpkg.com/vue@3/dist/vue.global.js"></script-->
+<script src="lib/vue/vue.global.js"></script>
+<script src="js/radio-online.js"></script> <!-- type="module" -->
+</body>
+</html>
